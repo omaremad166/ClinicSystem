@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Choose Date";
+}
+
+<h1>Choose Date</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+@using (Html.BeginForm("ChooseDate", "Appointments", FormMethod.Get))
+{
+    <div class="col-md-4">
+        <input class = "form-control" type="date" name="date" min="@ViewBag.DateNow"/>
+        <input type="submit" value="Choose Time" class="btn btn-primary"/>
+        <input hidden type="number" name="selectedDoctorId" value="@Model">
+    </div>
+}
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

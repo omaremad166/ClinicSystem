@@ -1,0 +1,24 @@
+﻿@model Doctor
+
+@{
+    ViewData["Title"] = "Choose Doctor";
+}
+
+<h1>Choose Doctor</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+@using (Html.BeginForm("ChooseDoctor", "Appointments", FormMethod.Get))
+{
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.DropDownList("selectedDoctorId", new SelectList(ViewBag.Doctors, "Id", "Name"), null, new { @class = "form-control" })
+        <input type="submit" value="Choose Doctor" class="btn btn-primary"/>
+    </div>
+}
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
